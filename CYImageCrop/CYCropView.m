@@ -459,7 +459,7 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
             // 如果是自定义模式，直接取消了长宽比的约束后即可返回
             return;
         case CYCropScaleTypeOriginal:
-            mutiplyValue = self.frame.size.height/self.frame.size.width;
+            mutiplyValue = self.frame.size.width/self.frame.size.height;
             break;
         case CYCropScaleType1To1:
             mutiplyValue = 1.0;
