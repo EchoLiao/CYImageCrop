@@ -482,6 +482,18 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
         case CYCropScaleType9To16:
             mutiplyValue = 9.0/16.0;
             break;
+        case CYCropScaleType5To4:
+            mutiplyValue = 5.0/4.0;
+            break;
+        case CYCropScaleType4To5:
+            mutiplyValue = 4.0/5.0;
+            break;
+        case CYCropScaleType7To5:
+            mutiplyValue = 7.0/5.0;
+            break;
+        case CYCropScaleType5To7:
+            mutiplyValue = 5.0/7.0;
+            break;
     }
     // 更新约束
     [_containerView mas_updateConstraints:^(MASConstraintMaker *make) {
