@@ -40,6 +40,8 @@ typedef NS_ENUM(NSInteger, CYCropScaleType) {
 /** 设置缩放的长宽比，以及是否进行动画 */
 - (void)setScaleType:(CYCropScaleType)scaleType animated:(BOOL)animated;
 
+@property (nonatomic, copy)void (^changingHandler) ();
+
 /** 每次拖动裁剪框后的回调 */
 @property (nonatomic, copy)void (^completionHandler) ();
 

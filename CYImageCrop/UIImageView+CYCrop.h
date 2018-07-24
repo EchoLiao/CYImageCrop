@@ -33,6 +33,8 @@
 /** 设置缩放类型 */
 - (void)cy_setScaleType:(CYCropScaleType)scaleType;
 
+- (void)cy_setChangingHandler:(void (^)())changingHandler;
+
 /** 设置每次拖拽裁剪框后的回调 */
 - (void)cy_setComplectionHandler:(void (^)())complectionHandler;
 

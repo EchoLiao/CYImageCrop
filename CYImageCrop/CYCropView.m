@@ -261,6 +261,9 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
             break;
         case UIGestureRecognizerStateChanged:
             [self p_dragCropViewWithType:dragType gesture:sender];
+            if(_changingHandler) {
+                _changingHandler();
+            }
             break;
         case UIGestureRecognizerStateEnded:
             // 完成后的回调

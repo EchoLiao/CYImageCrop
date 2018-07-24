@@ -126,6 +126,10 @@ const static char *CYCropViewKey = "CYCropViewKey";
     }
 }
 
+- (void)cy_setChangingHandler:(void (^)())changingHandler {
+    self.cy_cropView.changingHandler = changingHandler;
+}
+
 /** 设置每次拖拽裁剪框后的回调 */
 - (void)cy_setComplectionHandler:(void (^)())complectionHandler {
     self.cy_cropView.completionHandler = complectionHandler;
