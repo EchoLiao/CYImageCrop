@@ -79,6 +79,7 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     if (!self) { return nil; }
     
     _borderWidth = 2.0;
+    _borderColor = [UIColor whiteColor];
     _maskColor = [UIColor colorWithWhite:0 alpha:0.5];
     _minLenghOfSide = 100;
     
@@ -115,12 +116,13 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     _rightMask = [UIView new];
     _topMask = [UIView new];
     _bottomMask = [UIView new];
-    
+
+    [CYCropCornerView appearance].tintColor = _borderColor;
     _leftTopCorner = [[CYCropCornerView alloc] initWithPosition:CYCropCornerPositionLeftTop];
     _rightTopCorner = [[CYCropCornerView alloc] initWithPosition:CYCropCornerPositionRightTop];
     _leftBottomCorner = [[CYCropCornerView alloc] initWithPosition:CYCropCornerPositionLeftBottom];
     _rightBottomCorner = [[CYCropCornerView alloc] initWithPosition:CYCropCornerPositionRightBottom];
-    
+
     [self addSubview:_containerView];
     [self addSubview:_leftMask];
     [self addSubview:_rightMask];
@@ -144,7 +146,7 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
 - (void)p_configAllViews {
     _containerView.backgroundColor = [UIColor clearColor];
     _containerView.layer.borderWidth = _borderWidth;
-    _containerView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _containerView.layer.borderColor = _borderColor.CGColor;
     // 阴影
     _containerView.layer.shadowRadius = 1.0;
     _containerView.layer.shadowColor = [UIColor grayColor].CGColor;
@@ -156,7 +158,7 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     }
     
     for (UIView *lineView in @[_verticalLeftLine, _verticalRightLine, _horizontalTopLine, _horizontalBottomLine]) {
-        lineView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+        lineView.backgroundColor = [self adjustColor:_borderColor byAlpha:0.8];
     }
 }
 
@@ -549,4 +551,12 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     }];
     [self setNeedsUpdateConstraints];
 }
+
+
+- (UIColor *)adjustColor:(UIColor *)color byAlpha:(CGFloat)ap {
+    CGFloat r, g, b, a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:r green:g blue:b alpha:a*ap];
+}
+
 @end

@@ -18,11 +18,11 @@ static const CGFloat kCornerLength = 20.0;
     if (!self) { return nil; }
     
     CALayer *rectLayer = [CALayer layer];
-    rectLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    rectLayer.backgroundColor = [CYCropCornerView appearance].tintColor ? [CYCropCornerView appearance].tintColor.CGColor : [UIColor whiteColor].CGColor;
     [self.layer addSublayer:rectLayer];
     
     CALayer *squareLayer = [CALayer layer];
-    squareLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    squareLayer.backgroundColor = [CYCropCornerView appearance].tintColor ? [CYCropCornerView appearance].tintColor.CGColor : [UIColor whiteColor].CGColor;
     [self.layer addSublayer:squareLayer];
     
     switch (position) {
