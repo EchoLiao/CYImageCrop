@@ -49,8 +49,6 @@ typedef NS_ENUM(NSInteger, CYCropScaleType) {
 
 /** 裁剪框边框粗细 */
 @property (nonatomic, assign)CGFloat borderWidth;
-/** 裁剪框边框颜色 */
-@property (nonatomic, strong)UIColor *borderColor;
 /** 遮罩层颜色 */
 @property (nonatomic, strong)UIColor *maskColor;
 /** 裁剪框最小边长 */

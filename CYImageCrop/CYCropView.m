@@ -68,6 +68,8 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     NSInteger _topPriority;
     NSInteger _rightPriority;
     NSInteger _bottomPriority;
+
+    UIColor *_borderColor;
 }
 
 - (instancetype)init {
@@ -79,7 +81,7 @@ typedef NS_ENUM(NSInteger, CYCropDragType) {
     if (!self) { return nil; }
     
     _borderWidth = 2.0;
-    _borderColor = [UIColor whiteColor];
+    _borderColor = [CYCropView appearance].tintColor ? [CYCropView appearance].tintColor : [UIColor whiteColor];
     _maskColor = [UIColor colorWithWhite:0 alpha:0.5];
     _minLenghOfSide = 100;
     
